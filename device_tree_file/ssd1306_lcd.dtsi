@@ -1,0 +1,31 @@
+/* 
+ * SSD1306 OLED LCD Device tree for BeagleBone Black
+ */
+
+/* Pin muxing */
+&am33xx_pinmux {
+	i2c1_pins: ssd1306_pins {
+		pinctrl-single,pins = <
+			AM33XX_IOPAD(0x984, PIN_INPUT_PULLUP | MUX_MODE3)	/* i2c1_scl - P9_24 */
+			AM33XX_IOPAD(0x980, PIN_INPUT_PULLUP | MUX_MODE3)	/* i2c1_scl - P9_26 */
+		>;
+	};
+};
+
+/* Add new ssd1306 node inside i2c1 node */
+&i2c1 {
+	status = "okay";
+
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c1_pins>;
+
+	clock-frequency = <400000>;
+
+    #address-cells = <1>;
+    #size-cells = <0>;	
+	
+	ssd_1306: ssd_1306@3c {
+		compatible = "gia,ssd1306";
+		reg = <0x3c>;
+	};
+};
