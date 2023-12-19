@@ -1,7 +1,7 @@
 # Device Driver for a SSD1306 OLED LCD on BeagleBone Black board
 
 # Testing video:
-
+https://www.youtube.com/watch?v=1O1K57AnjL8
 
 # How to use:
 - Include the ssd1306_lcd.dtsi into am335x-boneblack.dts
